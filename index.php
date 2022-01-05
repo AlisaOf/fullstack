@@ -7,6 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <styie>
+        .btn-danger {
+            border-radius: 100px;
+            padding: 2px 12 px 4px 12px;
+        }
+    </styie>
   </head>
   <body>
        <div class='container mt-5'>  
@@ -52,7 +58,7 @@ $city = $user['city_id'] ? $user['city_id'] : '-';
             <td>{$user['login']}</td>
             <td>{$user['name']}</td>
             <td>{$city}</td>
-            <td>
+            <td class='text-center'>
               <form method='post' action=del.user.php'>
               <button class=btn btn-danger'>x</button>
             </td>
