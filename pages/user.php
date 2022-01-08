@@ -64,16 +64,16 @@ if (isset ($_SESSION['error'])) {
    </div>
   ";
   unset($_SESSION['error']);
-} else {
+} else if (isset ($_SESSION['success'])) {
   echo
   '
   <div class="alert alert-success text-center" role="alert">
       Обновления сохранены
   </div>
  ';
+  unset($_SESSION['successr']);
 }
 
-# вывести алерт об успешном выполнении запроса
 
 ?>
        <form method="post" action="../actoins/update_user.php">

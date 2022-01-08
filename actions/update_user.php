@@ -20,10 +20,9 @@ if (!$status) {
     $error = $res->errorInfo()[2];
     $_SESSION['error'] = $error;
 } else {
-    $_SESSION['good'] = 1;
+    $_SESSION['success'] = true;
 }
 
-# заполнить ключ в сессии, если запрос выполнился успешно
 
 
 header("Location: ../pages/user.php?id=$userId");
