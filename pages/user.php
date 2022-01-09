@@ -41,11 +41,6 @@ $query = "SELECT * FROM cities";
 $res = $pdo->query($query);
 $cities = $res->fetchAll();
 
-//if ($user) {
-//    echo "Найден пользователь {$user['login']}";
-//} else {
-//  echo "Пользоаватель с id $userId не найден";
-//}
 
 if (isset ($_SESSION['error'])) {
   echo
