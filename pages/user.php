@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once '../templates/header.php';
 ?>
 
 <!doctype html>
@@ -9,7 +9,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <title>Hello, world!</title>
   </head>
   <body>
@@ -25,15 +24,7 @@ session_start();
 #print_r($_SESSION); 
 #unset ($_SESSION['test']); очищаем сессию
 
-
-$user = $password = 'root';
-$pdo = new Pdo ('mysql:dbname=fullstack;host=127.0.0.1', $user, $password);
 $userId = $_GET['id'];
-
-# попытаться найти пользователя в базе
-# если есть, вывести его логин
-# если нет, вывести сообщение "пользователь не найден"
-
 
 $query = 'SELECT * FROM users WHERE id = :id';
 $res = $pdo->prepare($query);
@@ -67,7 +58,7 @@ if (isset ($_SESSION['error'])) {
 } else if (isset ($_SESSION['success'])) {
   echo
   '
-  <div class="alert alert-success text-center" role="alert">
+  <div id="alertSuccess" class="alert alert-success text-center" role="alert">
       Обновления сохранены
   </div>
  ';
@@ -106,8 +97,14 @@ if (isset ($_SESSION['error'])) {
           ';
         }
         ?>
-      </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
-</html> 
-
+      
+      <script>
+        $(document).ready(function() {
+          setTimeout(function() {
+            $('#alertSuccess').fadeOut()
+          }, 3000);
+          
+        })
+     
+<?php
+require_once '../templates/footer.php';
