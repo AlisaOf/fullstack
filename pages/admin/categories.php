@@ -49,3 +49,5 @@ $categories = $res->fetchAll();
     </tbody>   
 </table>
 
+<?php
+require_once '../../templates/footer.php'; 

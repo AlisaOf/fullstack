@@ -13,3 +13,5 @@ $res->execute([
 ]);
 
 header ("Location: /pages/admin/categories.php");
+
+require_once '../templates/footer.php'; 
