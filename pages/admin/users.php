@@ -40,7 +40,7 @@ foreach ($users as $user) {
             <td class='text-center'>
               <form method='post' action='actions/del.user.php'>
                 <input type='hidden' name='id' value='{$user['id']}'>
-                  <button type='submite' class='btn btn-danger'>x</button>
+                  <button type='submite' class='btn btn-user-delete btn-danger'>x</button>
               </form>
               </td>
         </tr>

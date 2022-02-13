@@ -7,7 +7,7 @@ $res = $pdo->query($query);
 $categories = $res->fetchAll();
 ?>
 
-<form method="POST" action="../actions/admin/createCategory.php">
+<form method="POST" action="/actions/admin/createCategory.php">
     <input class="form-control md-2" name='name' placeholder="Наименование категории">
     <textarea class="form-control mb-2" name='description' placeholder="Описание">
     <button class='btn btn-primary w-100" type="submit">Сохранить</button>

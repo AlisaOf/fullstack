@@ -1,5 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+$document_root = $_SERVER['DOCUMENT_ROOT'];
+require $document_root . '/config.php';
 ?>
 
 <!doctype html>
@@ -18,9 +19,33 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
     <?= $title ?>
     </title>
     <style>
-       btn.danger {
+       .btn-user-delete {
            border-radius: 100px;
            padding: 2px 12px 4px 12px;
+       }
+       .card-image {
+          margin-top: 10px;
+          height: 180px;
+       }
+       .card-image img {
+           width: auto;
+           height: 100%;
+       }
+       .card-price {
+         text-align: center;
+         font-size: 23px;
+         border-bottom: 2px solid grey;
+       }
+       .btn-product-add, .btn-product-remove {
+         width: 37px;
+       }
+       .card-basket-buttons {
+         margin-top: 15px;
+         display: flex;
+         justify-content: space-between;
+       }
+       .card-basket-quantily {
+         line-height: 38px;
        }
     </style>
   </head>
@@ -34,7 +59,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                  
-              <?php if (($_SESSION['user']['is_admin'])) { ?>
+              <?php if ($_SESSION['user']['is_admin']) { ?>
                 <li class="nav-item">
                 <a class="nav-link <?=$_SERVER['PHP_SELF'] == "/pages/admin/index.php" ? 'active' : '' ?>" href="/pages/admin/index.php">
                        Админка <span class="sr-only"></span></a>
@@ -51,6 +76,12 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
                        Регистрация</a>
                </li>
                <?php }else {?>
+
+                <li class="nav-item">
+               <a class="nav-link <?=$_SERVER['PHP_SELF'] == "/pages/basket.php" ? 'active' : '' ?>" href="/pages/basket.php">
+                       Корзина (<?= array_sum($_SESSION['products']) ?? [] ?>)
+                      </a>
+               </li>
 
                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
